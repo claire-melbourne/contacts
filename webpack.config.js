@@ -3,6 +3,7 @@ const SRC_DIR = path.join(__dirname, '/public/src');
 const DIST_DIR = path.join(__dirname, '/public/dist');
 
 module.exports = {
+  mode: 'development',
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     path: DIST_DIR,
@@ -14,7 +15,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         include: SRC_DIR,
         use: {
-          loader: 'bable-loader',
+          loader: 'babel-loader',
           options: {
             presets: [
               '@babel/preset-env',
@@ -23,6 +24,7 @@ module.exports = {
           }
         }
       }
-    ]
-  }
+    ],
+  },
+  watch: true
 }
